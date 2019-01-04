@@ -1,0 +1,51 @@
+[user]
+	email = jack@solana.com
+	name = Jack May
+
+[credential]
+	helper = osxkeychain
+
+[color]
+    ui = auto
+
+[core]
+	editor = 'code' --wait
+
+[push]
+	default = simple
+
+[status]
+	showUntrackedFiles = all
+
+[dif]
+	tool = araxis
+
+[merge]
+	tool = araxis
+
+[alias]
+    a = add
+	b = branch
+	bd = branch -d
+	c = commit -m
+	ca = commit -am
+	co = checkout
+	cob = checkout -b
+	dd = difftool --dir-diff
+	s = status -s
+	fm = "!f() { \
+            git checkout master; \
+			git fetch $1; \
+			git rebase $1/master; \
+	      }; f"
+	p = remote prune
+    branch-note = "!git config branch.$(git symbolic-ref --short HEAD).note $( if [ $# -gt 0 ]; then $1; fi)"
+	plog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	smoosh = ! git commit --amend -C "$(git log -1 --pretty=format:%H)"
+	stash-all = stash save --include-untracked
+	undo = reset --soft HEAD^
+	clean-all = git reset --hard HEAD && git clean -dffx
+[difftool]
+	prompt = false
+[rebase]
+	autosquash = true
