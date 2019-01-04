@@ -1,10 +1,30 @@
-PS1='[\h \W$(__git_ps1 " (%s)")]\$ '
+# bunch of random paths ordered in reverse order of precedence
+declare -a paths=(
+~/.cargo/bin
+/Applications/Araxis\ Merge.app/Contents/Utilities
+~/scripts
+~/scripts/notes
+)
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$PATH:/Applications/Araxis\ Merge.app/Contents/Utilities
-export PATH=$PATH:~/scripts:~/scripts/notes
+for i in "${paths[@]}"
+do
+   if [[ :${PATH}: =~ :${i}: ]]
+   then
+       #echo $i already in PATH
+       :
+   elif [[ -d ${i} ]]
+   then
+       # echo adding $i
+       PATH=${i}:${PATH}
+   fi
+done
 
 export EDITOR="/usr/local/bin/code"
+export VISUAL=${EDITOR}
+export PS1='[\h \W$(__git_ps1 " (%s)")]\$ '
+
+HISTSIZE=10000
+HISTFILESIZE=1000000000
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
