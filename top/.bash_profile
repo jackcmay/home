@@ -4,6 +4,9 @@ declare -a paths=(
 /Applications/Araxis\ Merge.app/Contents/Utilities
 ~/scripts
 ~/scripts/notes
+/usr/local/Cellar/python/3.7.3/bin
+~/google-cloud-sdk/path.bash.inc
+~/google-cloud-sdk/completion.bash.inc
 )
 
 for i in "${paths[@]}"
@@ -31,7 +34,6 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then source '~/google-cloud-sdk/path.bash.inc'; fi
-
+if [ -f '/Users/jack/google-cloud-sdk/path.bash.inc' ]; then . '/Users/jack/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then source '~/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/jack/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/jack/google-cloud-sdk/completion.bash.inc'; fi
