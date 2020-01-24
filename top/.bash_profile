@@ -7,6 +7,7 @@ declare -a paths=(
 /usr/local/Cellar/python/3.7.3/bin
 ~/google-cloud-sdk/path.bash.inc
 ~/google-cloud-sdk/completion.bash.inc
+/usr/local/Cellar/arm-none-eabi-gdb/8.2.1/bin
 )
 
 for i in "${paths[@]}"
@@ -37,3 +38,8 @@ fi
 if [ -f '/Users/jack/google-cloud-sdk/path.bash.inc' ]; then . '/Users/jack/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jack/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/jack/google-cloud-sdk/completion.bash.inc'; fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+alias ls='ls -G'
+alias ll='ls -lG'
