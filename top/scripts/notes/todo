@@ -1,2 +1,2 @@
 #!/bin/bash
-grep TODO  ~/notes/daily.txt
+code ~/notes/todo.txt
